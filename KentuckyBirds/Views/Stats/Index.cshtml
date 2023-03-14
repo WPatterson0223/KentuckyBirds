@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Stats>
+
+<h2>Birds</h2>
+
+<div style="display: block">
+    <a href="/Stats/InsertBird/">Add a New Bird</a>
+</div>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Latin Name</th>
+        <th>Length</th>
+        <th>Height</th>
+        <th>Wingspan</th>
+    </tr>
+
+    @foreach (var bird in @Model)
+    {
+        <tr>
+            <td>@bird.ID</td>
+            <td><a href=/Stats/ViewBird/@bird.ID>@bird.Name</a></td>
+            <td>@bird.LatinName</td>
+            <td>@bird.Length</td>
+            <td>@bird.Height</td>
+            <td>@bird.Wingspan</td>
+        </tr>
+    }
+
+</table>

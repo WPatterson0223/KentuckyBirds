@@ -1,0 +1,25 @@
+﻿@model Stats
+
+<h2>Update @Model.Name</h2>
+
+@using (Html.BeginForm("UpdateBirdToDatabase", "Stats", "Post"))
+{
+    <input asp-for="ID" type="hidden" value="@Model.ID" />
+
+    <label asp-for="Name" class="control-label">Name</label>
+    <input type="text" name="Name" class="form-control" value="@Model.Name" />
+
+    <label asp-for="LatinName" class="control-label">Latin Name</label>
+    <input type="text" name="LatinName" class="form-control" value="@Model.LatinName" />
+
+    <label asp-for="Length" class="control-label">Length</label>
+    <input type="number" step="0.10" name="Length" class="form-control" value="@Model.Length" />
+
+    <label asp-for="Height" class="control-label">Height</label>
+    <input type="number" step="0.10" name="Height" class="form-control" value="@Model.Height" />
+
+    <label asp-for="Wingspan" class="control-label">Wingspan</label>
+    <input type="number" step="0.10" name="Wingspan" class="form-control" value="@Model.Wingspan" />
+
+    <input type="submit" value="Update Bird" class="btn btn-primary" />
+}

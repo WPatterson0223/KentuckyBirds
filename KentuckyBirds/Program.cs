@@ -1,3 +1,7 @@
+using KentuckyBirds.Models;
+using MySql.Data.MySqlClient;
+using System.Data;
+
 namespace KentuckyBirds;
 
 public class Program
@@ -7,6 +11,15 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.
+        builder.Services.AddScoped<IDbConnection>((s) =>
+        {
+            IDbConnection conn = new MySqlConnection(builder.Configuration.GetConnectionString("kentuckybirds"));
+            conn.Open();
+            return conn;
+        });
+
+        builder.Services.AddTransient<IBirdRepository, BirdRepository>();
+
         builder.Services.AddControllersWithViews();
 
         var app = builder.Build();

@@ -1,0 +1,25 @@
+﻿@model Stats
+
+<h2>Add a New Bird</h2>
+
+@using (Html.BeginForm("InsertBirdToDatabase", "Stats", "Post"))
+    {
+    <input asp-for="ID" type="hidden" value="" />
+
+    <label asp-for="Name" class="control-label">Name</label>
+    <input type="text" name="Name" class="form-control" value="" />
+
+    <label asp-for="LatinName" class="control-label">Latin Name</label>
+    <input type="text" name="LatinName" class="form-control" value="@Model.LatinName" />
+
+    <label asp-for="Length" class="control-label">Length</label>
+    <input type="text" name="Length" class="form-control" value="@Model.Length" />
+
+    <label asp-for="Height" class="control-label">Height</label>
+    <input type="text" name="Height" class="form-control" value="@Model.Height" />
+
+    <label asp-for="Wingspan" class="control-label">Wingspan</label>
+    <input type="text" name="Wingspan" class="form-control" value="@Model.Wingspan" />
+
+    <input type="submit" value="Create Bird" class="btn btn-primary" />
+    }
