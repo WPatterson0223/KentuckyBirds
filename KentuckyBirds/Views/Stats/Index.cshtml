@@ -6,6 +6,16 @@
     <a href="/Stats/InsertBird/">Add a New Bird</a>
 </div>
 
+<div class="col-1 p-0 justify-content-end">
+    <form asp.controller="Bird" asp.action="Index">
+        <span class="btn.group">
+            <input class="form control" type="text" name="userSearch" placeholder="Search">
+            <input class="p-1 m1-2 btn btn-sm btn-info" type="submit" value="Search" />
+        </span>
+
+    </form>
+</div>
+
 <table class="table">
     <tr>
         <th>ID</th>

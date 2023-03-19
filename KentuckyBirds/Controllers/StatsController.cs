@@ -19,9 +19,20 @@ namespace KentuckyBirds.Controllers
         }
 
         // GET: /<controller>/
-        public IActionResult Index()
+        public IActionResult Index(string userSearch = "")
         {
             var birds = repo.GetAllBirds();
+            if (userSearch != "" && userSearch != null)
+            {
+                birds = repo.GetAllBirds().Where(x => x.Name.Contains(userSearch)).ToList();
+
+            }
+            else
+            {
+                birds = repo.GetAllBirds()
+;            }
+
+            //var birds = repo.GetAllBirds();
             return View(birds);
         }
         public IActionResult ViewBird(int id)
