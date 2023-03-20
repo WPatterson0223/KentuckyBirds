@@ -12,6 +12,7 @@ namespace KentuckyBirds.Models
 		public string Length { get; set; }
 		public string Height { get; set; }
 		public string Wingspan { get; set; }
+		public string Picture { get; set; }
 	}
 }
 

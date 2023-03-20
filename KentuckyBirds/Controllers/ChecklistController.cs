@@ -9,11 +9,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace KentuckyBirds.Controllers
 {
-    public class StatsController : Controller
+    public class ChecklistController : Controller
     {
+        // GET: /<controller>/
         private readonly IBirdRepository repo;
 
-        public StatsController(IBirdRepository repo)
+        public ChecklistController(IBirdRepository repo)
         {
             this.repo = repo;
         }
@@ -21,35 +22,36 @@ namespace KentuckyBirds.Controllers
         // GET: /<controller>/
         public IActionResult Index(string userSearch = "")
         {
-            var birds = repo.GetAllBirds();
+            var birds = repo.GetAllBirdsChecklist();
             if (userSearch != "" && userSearch != null)
             {
-                birds = repo.GetAllBirds().Where(x => x.Name.ToLower().Contains(userSearch.ToLower())).ToList();
+                birds = repo.GetAllBirdsChecklist().Where(x => x.Name.Contains(userSearch)).ToList();
 
             }
             else
             {
-                birds = repo.GetAllBirds()
-;            }
+                birds = repo.GetAllBirdsChecklist()
+;
+            }
 
             //var birds = repo.GetAllBirds();
             return View(birds);
         }
         public IActionResult ViewBird(int id)
         {
-            var bird = repo.GetBird(id);
+            var bird = repo.GetBirdChecklist(id);
             return View(bird);
         }
         public IActionResult UpdateBird(int id)
         {
-            Stats bird = repo.GetBird(id);
+            Checklist bird = repo.GetBirdChecklist(id);
             if (bird == null)
             {
                 return View("BirdNotFound");
             }
             return View(bird);
         }
-        public IActionResult UpdateBirdToDatabase(Stats bird)
+        public IActionResult UpdateBirdToDatabase(Checklist bird)
         {
             repo.UpdateBird(bird);
 
@@ -57,22 +59,17 @@ namespace KentuckyBirds.Controllers
         }
         public IActionResult InsertBird()
         {
-            var bird = new Stats();
+            var bird = new Checklist();
             return View(bird);
         }
-        public IActionResult InsertBirdToDatabase(Stats birdToInsert)
+        public IActionResult InsertBirdToDatabase(Checklist birdToInsert)
         {
             repo.InsertBird(birdToInsert);
             return RedirectToAction("Index");
         }
-        public IActionResult DeleteBird(Stats bird)
+        public IActionResult DeleteBird(Checklist bird)
         {
             repo.DeleteBird(bird);
-            return RedirectToAction("Index");
-        }
-        public IActionResult InsertChecklistFromStats(Stats birdToInsert)
-        {
-            repo.InsertChecklistFromStats(birdToInsert);
             return RedirectToAction("Index");
         }
     }

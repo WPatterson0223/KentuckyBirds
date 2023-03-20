@@ -2,9 +2,29 @@
     ViewData["Title"] = "Home Page";
 }
 
-
+<style>
+    .home-bg-image {
+        background-image: url("Users/william/Desktop/Repos/Images/KentuckyBirds_Background.jpeg");
+        height: 100vh;
+        width: 100vw;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: fixed;
+    }
+</style>
+<div class="home-bg-image"></div>
 <div class="text-center">
     <h1 class="display-4">Kentucky's Birds</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
 </div>
- 
+
+<div class="col-1 p-0 justify-content-end">
+    <form asp.controller="Bird" asp.action="Index">
+        <span class="btn.group">
+            <input class="form control" type="text" name="userSearch" placeholder="Search">
+            <input class="p-1 m1-2 btn btn-sm btn-info" type="submit" value="Search" />
+        </span>
+
+    </form>
+</div>

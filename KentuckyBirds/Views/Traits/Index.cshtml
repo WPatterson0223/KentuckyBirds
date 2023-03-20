@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Traits>
+
+<h2>Birds</h2>
+
+<div style="display: block">
+    <a href="/Traits/InsertBird/">Add a New Bird</a>
+</div>
+
+<div class="col-1 p-0 justify-content-end">
+    <form asp.controller="Bird" asp.action="Index">
+        <span class="btn.group">
+            <input class="form control" type="text" name="userSearch" placeholder="Search">
+            <input class="p-1 m1-2 btn btn-sm btn-info" type="submit" value="Search" />
+        </span>
+
+    </form>
+</div>
+
+<div style="display: block">
+        <form asp.controller="Bird" asp.action="Index">
+            <span class="btn.group">
+                <input class="form control" type="text" name="BrightColor" placeholder="Body Color">
+                <input class="form control" type="text" name="AccentColor" placeholder="Accent Color">
+                <input class="form control" type="text" name="BackColor" placeholder="Back Color">
+                <input class="form control" type="text" name="BellyColor" placeholder="Belly Color">
+                <input class="form control" type="text" name="HeadColor" placeholder="Head Color">
+                <input class="form control" type="text" name="ChestColor" placeholder="Chest Color">
+                <input class="form control" type="text" name="TailColor" placeholder="Tail Color">
+                <input class="form control" type="text" name="BeakColor" placeholder="Beak Color">
+                <input class="form control" type="text" name="SpottedStriped" placeholder="Spotted or Striped">
+                <input class="form control" type="text" name="BeakSize" placeholder="Beak Size">
+                <input class="form control" type="text" name="HeadShape" placeholder="Head Shape">
+                <input class="p-1 m1-2 btn btn-sm btn-info" type="submit" value="Search" />
+            </span>
+
+        </form>
+</div>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Latin Name</th>
+        <th>Length</th>
+        <th>Height</th>
+        <th>Wingspan</th>
+    </tr>
+
+    @foreach (var bird in @Model)
+    {
+        <tr>
+            <td>@bird.ID</td>
+            <td><a href=/Traits/ViewBird/@bird.ID>@bird.Name</a></td>
+            <td>@bird.LatinName</td>
+            <td>@bird.Length</td>
+            <td>@bird.Height</td>
+            <td>@bird.Wingspan</td>
+        </tr>
+    }
+
+</table>
+
+<div style="display: block">
+    <a href="/Traits/InsertBird/">Add a New Bird</a>
+</div>

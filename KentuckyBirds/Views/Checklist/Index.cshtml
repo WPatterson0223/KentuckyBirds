@@ -1,9 +1,9 @@
-﻿@model IEnumerable<Stats>
+﻿@model IEnumerable<Checklist>
 
 <h2>Birds</h2>
 
 <div style="display: block">
-    <a href="/Stats/InsertBird/">Add a New Bird</a>
+    <a href="/Checklist/InsertBird/">Add a New Bird</a>
 </div>
 
 <div class="col-1 p-0 justify-content-end">
@@ -24,22 +24,25 @@
         <th>Length</th>
         <th>Height</th>
         <th>Wingspan</th>
+        <th>Comment</th>
     </tr>
 
     @foreach (var bird in @Model)
     {
         <tr>
             <td>@bird.ID</td>
-            <td><a href=/Stats/ViewBird/@bird.ID>@bird.Name</a></td>
+            <td><a href=/Checklist/ViewBird/@bird.ID>@bird.Name</a></td>
             <td>@bird.LatinName</td>
             <td>@bird.Length</td>
             <td>@bird.Height</td>
             <td>@bird.Wingspan</td>
+            <td>@bird.Comment</td>
         </tr>
     }
 
 </table>
 
 <div style="display: block">
-    <a href="/Stats/InsertBird/">Add a New Bird</a>
+    <a href="/Checklist/InsertBird/">Add a New Bird</a>
 </div>
+

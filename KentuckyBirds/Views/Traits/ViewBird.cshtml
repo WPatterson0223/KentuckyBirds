@@ -1,4 +1,4 @@
-﻿@model Stats
+﻿@model Traits
 
 <h3>@Model.Name Information</h3>
 
@@ -21,12 +21,12 @@
     </tr>
 </table>
 <div style="display: block">
-    <a href="/Stats/UpdateBird/@Model.ID">Update this Bird</a>
+    <a href="/Traits/UpdateBird/@Model.ID">Update this Bird</a>
 </div>
 
 <div style="display: block">
 
-    @using (Html.BeginForm("DeleteBird", "Stats", "Post"))
+    @using (Html.BeginForm("DeleteBird", "Traits", "Post"))
     {
         <input type="hidden" asp-for="ID" value="@Model.ID" />
         <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this bird" />
@@ -35,7 +35,7 @@
 
 <div style="display: block">
 
-    @using (Html.BeginForm("InsertChecklistFromStats", "Stats", "Post"))
+    @using (Html.BeginForm("InsertChecklistFromTraits", "Traits", "Post"))
     {
         <input type="hidden" asp-for="Name" value="@Model.Name" />
         <input type="hidden" asp-for="LatinName" value="@Model.LatinName" />
