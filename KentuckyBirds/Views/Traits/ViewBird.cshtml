@@ -1,47 +1,94 @@
 ﻿@model Traits
+    
+        <h3>@Model.Name Information</h3>
 
-<h3>@Model.Name Information</h3>
+        @*<table class="table">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Latin Name</th>
+                    <th>Length</th>
+                    <th>Height</th>
+                    <th>Wingspan</th>
+                </tr>
+                <tr>
+                    <td>@Model.ID</td>
+                    <td>@Model.Name</td>
+                    <td>@Model.LatinName</td>
+                    <td>@Model.Length</td>
+                    <td>@Model.Height</td>
+                    <td>@Model.Wingspan</td>
+                </tr>
+            </table>*@
+<img id="pic" alt="@Model.Name" src="@Url.Content("~/"+ Model.Picture + "")" />
+        <ul>
+            
+            <li class="birdlist">@Model.LatinName</li>
+            <li class="birdlist">Length: @Model.Length</li>
+            <li class="birdlist">Height: @Model.Height</li>
+            <li class="birdlist">Wingspan: @Model.Wingspan</li>
+        </ul>
+        <div style="display: block">
+            <a class="update" href="/Traits/UpdateBird/@Model.ID">Update this Bird</a>
+        </div>
 
-<table class="table">
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Latin Name</th>
-        <th>Length</th>
-        <th>Height</th>
-        <th>Wingspan</th>
-    </tr>
-    <tr>
-        <td>@Model.ID</td>
-        <td>@Model.Name</td>
-        <td>@Model.LatinName</td>
-        <td>@Model.Length</td>
-        <td>@Model.Height</td>
-        <td>@Model.Wingspan</td>
-    </tr>
-</table>
-<div style="display: block">
-    <a href="/Traits/UpdateBird/@Model.ID">Update this Bird</a>
-</div>
+        <div style="display: block">
 
-<div style="display: block">
+            @using (Html.BeginForm("DeleteBird", "Traits", "Post"))
+            {
+                <input type="hidden" asp-for="ID" value="@Model.ID" />
+                <input class="button" type="submit" onclick="return confirm('Are you sure?')" value="Delete this bird" />
+            }
+        </div>
 
-    @using (Html.BeginForm("DeleteBird", "Traits", "Post"))
-    {
-        <input type="hidden" asp-for="ID" value="@Model.ID" />
-        <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this bird" />
-    }
-</div>
+        <div style="display: block">
 
-<div style="display: block">
+            @using (Html.BeginForm("InsertChecklistFromTraits", "Traits", "Post"))
+            {
+                <input type="hidden" asp-for="Name" value="@Model.Name" />
+                <input type="hidden" asp-for="LatinName" value="@Model.LatinName" />
+                <input type="hidden" asp-for="Length" value="@Model.Length" />
+                <input type="hidden" asp-for="Height" value="@Model.Height" />
+                <input type="hidden" asp-for="Wingspan" value="@Model.Wingspan" />
+                <input type="hidden" asp-for="Picture" value="@Model.Picture" />
+                <input class="button" type="submit" onclick="return confirm('Are you sure?')" value="Add to Checklist" />
+            }
+        </div>
+    
+    <style>
+        body {
+            background-image: url("/Images/traitsviewbirdbackground.webp");
+            min-height: 500px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
 
-    @using (Html.BeginForm("InsertChecklistFromTraits", "Traits", "Post"))
-    {
-        <input type="hidden" asp-for="Name" value="@Model.Name" />
-        <input type="hidden" asp-for="LatinName" value="@Model.LatinName" />
-        <input type="hidden" asp-for="Length" value="@Model.Length" />
-        <input type="hidden" asp-for="Height" value="@Model.Height" />
-        <input type="hidden" asp-for="Wingspan" value="@Model.Wingspan" />
-        <input type="submit" onclick="return confirm('Are you sure?')" value="Add to Checklist" />
-    }
-</div>
+        #pic {
+            margin-bottom: 20px;
+            width: 500px;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .birdlist {
+            color: lightyellow;
+            font-size: 30px;
+        }
+        h3 {
+            color: lightyellow;
+            font-family: cursive;
+            font-size: 50px;
+        }
+        .update{
+            color:lightyellow;
+        }
+        .button {
+            color: lightyellow;
+            background-color: darkgreen;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-radius: 18px;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>

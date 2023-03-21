@@ -34,8 +34,8 @@ namespace KentuckyBirds.Models
         public void DeleteBird(Stats bird)
         {
             _connection.Execute("DELETE FROM Stats WHERE ID = @ID;", new { ID = bird.ID });
-            _connection.Execute("DELETE FROM Traits WHERE ID = @ID;", new { ID = bird.ID });
-            _connection.Execute("DELETE FROM TimeOfYear WHERE ID = @ID;", new { ID = bird.ID });
+            
+            
         }
 
 
@@ -56,7 +56,7 @@ namespace KentuckyBirds.Models
         }
         public void InsertBird(Checklist birdToInsert)
         {
-            _connection.Execute("INSERT INTO Checklist (Name, LatinName, Length, Height, Wingspan, Comment) VALUES (@Name, @LatinName, @Length, @Height, @Wingspan, @Comment);",
+            _connection.Execute("INSERT INTO Checklist ( Name, LatinName, Length, Height, Wingspan, Comment) VALUES (@Name, @LatinName, @Length, @Height, @Wingspan, @Comment);",
                 new { name = birdToInsert.Name, LatinName = birdToInsert.LatinName, Length = birdToInsert.Length, Height = birdToInsert.Height, Wingspan = birdToInsert.Wingspan, Comment = birdToInsert.Comment});
         }
         public void DeleteBird(Checklist bird)
@@ -65,8 +65,8 @@ namespace KentuckyBirds.Models
         }
         public void InsertChecklistFromStats(Stats birdToInsert)
         {
-            _connection.Execute("INSERT INTO Checklist (Name, LatinName, Length, Height, Wingspan) VALUES (@Name, @LatinName, @Length, @Height, @Wingspan);",
-                new { name = birdToInsert.Name, LatinName = birdToInsert.LatinName, Length = birdToInsert.Length, Height = birdToInsert.Height, Wingspan = birdToInsert.Wingspan});
+            _connection.Execute("INSERT INTO Checklist ( Name, LatinName, Length, Height, Wingspan) VALUES (@Name, @LatinName, @Length, @Height, @Wingspan);",
+                new {name = birdToInsert.Name, LatinName = birdToInsert.LatinName, Length = birdToInsert.Length, Height = birdToInsert.Height, Wingspan = birdToInsert.Wingspan});
         }
 
 
@@ -96,8 +96,8 @@ namespace KentuckyBirds.Models
         }
         public void InsertChecklistFromTraits(Traits birdToInsert)
         {
-            _connection.Execute("INSERT INTO Checklist (Name, LatinName, Length, Height, Wingspan) VALUES (@Name, @LatinName, @Length, @Height, @Wingspan);",
-                new { name = birdToInsert.Name, LatinName = birdToInsert.LatinName, Length = birdToInsert.Length, Height = birdToInsert.Height, Wingspan = birdToInsert.Wingspan });
+            _connection.Execute("INSERT INTO Checklist (Name, LatinName, Length, Height, Wingspan, Picture) VALUES (@Name, @LatinName, @Length, @Height, @Wingspan, @Picture);",
+                new { name = birdToInsert.Name, LatinName = birdToInsert.LatinName, Length = birdToInsert.Length, Height = birdToInsert.Height, Wingspan = birdToInsert.Wingspan, Picture = birdToInsert.Picture });
         }
 
     }

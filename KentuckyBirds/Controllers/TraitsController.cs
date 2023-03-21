@@ -31,46 +31,56 @@ namespace KentuckyBirds.Controllers
             {
                 if (!String.IsNullOrEmpty(BrightColor))
                 {
+                    birds = birds.Where(x => x.BrightColor != null).ToList();
                     birds = birds.Where(x => x.BrightColor.ToLower().Contains(BrightColor.ToLower())).ToList();
                 }
                 if (!String.IsNullOrEmpty(AccentColor))
                 {
+                    birds = birds.Where(x => x.AccentColor != null).ToList();
                     birds = birds.Where(x => x.AccentColor.ToLower().Contains(AccentColor.ToLower())).ToList();
                 }
                 if (!String.IsNullOrEmpty(BellyColor))
                 {
+                    birds = birds.Where(x => x.BellyColor != null).ToList();
                     birds = birds.Where(x => x.BellyColor.ToLower().Contains(BellyColor.ToLower())).ToList();
                 }
                 if (!String.IsNullOrEmpty(BackColor))
                 {
+                    birds = birds.Where(x => x.BackColor != null).ToList();
                     birds = birds.Where(x => x.BackColor.ToLower().Contains(BackColor.ToLower())).ToList();
                 }
                 if (!String.IsNullOrEmpty(HeadColor))
                 {
+                    birds = birds.Where(x => x.HeadColor != null).ToList();
                     birds = birds.Where(x => x.HeadColor.ToLower().Contains(HeadColor.ToLower())).ToList();
                 }
                 if (!String.IsNullOrEmpty(ChestColor))
                 {
+                    birds = birds.Where(x => x.ChestColor != null).ToList();
                     birds = birds.Where(x => x.ChestColor.ToLower().Contains(ChestColor.ToLower())).ToList();
                 }
                 if (!String.IsNullOrEmpty(TailColor))
                 {
+                    birds = birds.Where(x => x.TailColor != null).ToList();
                     birds = birds.Where(x => x.TailColor.ToLower().Contains(TailColor.ToLower())).ToList();
                 }
                 if (!String.IsNullOrEmpty(BeakColor))
                 {
+                    birds = birds.Where(x => x.BeakColor != null).ToList();
                     birds = birds.Where(x => x.BeakColor.ToLower().Contains(BeakColor.ToLower())).ToList();
                 }
                 if (!String.IsNullOrEmpty(SpottedStriped))
                 {
+                    birds = birds.Where(x => x.SpottedStriped != null).ToList();
                     birds = birds.Where(x => x.SpottedStriped.ToLower().Contains(SpottedStriped.ToLower())).ToList();
                 }
-                if (!String.IsNullOrEmpty(BeakSize))
-                {
-                    birds = birds.Where(x => x.BeakSize.ToLower().Contains(BeakSize.ToLower())).ToList();
-                }
+                //if (!String.IsNullOrEmpty(BeakSize))
+                //{
+                //    birds = birds.Where(x => x.BeakSize.ToLower().Contains(BeakSize.ToLower())).ToList();
+                //}
                 if (!String.IsNullOrEmpty(HeadShape))
                 {
+                    birds = birds.Where(x => x.HeadShape != null).ToList();
                     birds = birds.Where(x => x.HeadShape.ToLower().Contains(HeadShape.ToLower())).ToList();
                 }
             }

@@ -3,8 +3,8 @@
 }
 
 <style>
-    .home-bg-image {
-        background-image: url("Users/william/Desktop/Repos/Images/KentuckyBirds_Background.jpeg");
+    body {
+        background-image: url("Images/background2.jpeg");
         height: 100vh;
         width: 100vw;
         background-position: center;
@@ -12,19 +12,17 @@
         background-size: cover;
         position: fixed;
     }
+    .display-4{
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+    }
 </style>
+
+
+
 <div class="home-bg-image"></div>
 <div class="text-center">
     <h1 class="display-4">Kentucky's Birds</h1>
 
 </div>
 
-<div class="col-1 p-0 justify-content-end">
-    <form asp.controller="Bird" asp.action="Index">
-        <span class="btn.group">
-            <input class="form control" type="text" name="userSearch" placeholder="Search">
-            <input class="p-1 m1-2 btn btn-sm btn-info" type="submit" value="Search" />
-        </span>
-
-    </form>
-</div>

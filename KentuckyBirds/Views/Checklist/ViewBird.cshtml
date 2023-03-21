@@ -2,26 +2,37 @@
 
 <h3>@Model.Name Information</h3>
 
-<table class="table">
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Latin Name</th>
-        <th>Length</th>
-        <th>Height</th>
-        <th>Wingspan</th>
-        <th>Comment</th>
-    </tr>
-    <tr>
-        <td>@Model.ID</td>
-        <td>@Model.Name</td>
-        <td>@Model.LatinName</td>
-        <td>@Model.Length</td>
-        <td>@Model.Height</td>
-        <td>@Model.Wingspan</td>
-        <td>@Model.Comment</td>
-    </tr>
-</table>
+@*<table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Latin Name</th>
+            <th>Length</th>
+            <th>Height</th>
+            <th>Wingspan</th>
+            <th>Comment</th>
+        </tr>
+        <tr>
+            <td>@Model.ID</td>
+            <td>@Model.Name</td>
+            <td>@Model.LatinName</td>
+            <td>@Model.Length</td>
+            <td>@Model.Height</td>
+            <td>@Model.Wingspan</td>
+            <td>@Model.Comment</td>
+        </tr>
+    </table>*@
+
+<img id="pic" alt="@Model.Name" src="@Url.Content("~/"+ Model.Picture + "")" />
+<ul>
+
+    <li class="birdlist">@Model.LatinName</li>
+    <li class="birdlist">Length: @Model.Length</li>
+    <li class="birdlist">Height: @Model.Height</li>
+    <li class="birdlist">Wingspan: @Model.Wingspan</li>
+    <li class="birdlist">Comment: @Model.Comment</li>
+</ul>
+
 <div style="display: block">
     <a href="/Checklist/UpdateBird/@Model.ID">Update this Bird</a>
 </div>
@@ -34,3 +45,44 @@
         <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this bird" />
     }
 </div>
+
+<style>
+    body {
+        background-image: url("/Images/checklistviewbirdbackground.jpeg");
+        min-height: 500px;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    #pic {
+        margin-bottom: 20px;
+        width: 500px;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .birdlist {
+        color: lightyellow;
+        font-size: 30px;
+    }
+
+    h3 {
+        color: lightyellow;
+        font-family: cursive;
+        font-size: 50px;
+    }
+
+    .update {
+        color: lightyellow;
+    }
+
+    .button {
+        color: lightyellow;
+        background-color: darkgreen;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-radius: 18px;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    }
+</style>

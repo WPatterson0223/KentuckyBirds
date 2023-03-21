@@ -3,20 +3,20 @@
 <h2>Birds</h2>
 
 <div style="display: block">
-    <a href="/Traits/InsertBird/">Add a New Bird</a>
+    <a class="addbird" href="/Traits/InsertBird/">Add a New Bird</a>
 </div>
 
 <div class="col-1 p-0 justify-content-end">
     <form asp.controller="Bird" asp.action="Index">
         <span class="btn.group">
-            <input class="form control" type="text" name="userSearch" placeholder="Search">
+            <input class="form control" type="text" name="userSearch" placeholder="Name">
             <input class="p-1 m1-2 btn btn-sm btn-info" type="submit" value="Search" />
         </span>
 
     </form>
 </div>
 
-<div style="display: block">
+<div class="traitsearch" style="display: block">
         <form asp.controller="Bird" asp.action="Index">
             <span class="btn.group">
                 <input class="form control" type="text" name="BrightColor" placeholder="Body Color">
@@ -28,7 +28,7 @@
                 <input class="form control" type="text" name="TailColor" placeholder="Tail Color">
                 <input class="form control" type="text" name="BeakColor" placeholder="Beak Color">
                 <input class="form control" type="text" name="SpottedStriped" placeholder="Spotted or Striped">
-                <input class="form control" type="text" name="BeakSize" placeholder="Beak Size">
+                @*<input class="form control" type="text" name="BeakSize" placeholder="Beak Size">*@
                 <input class="form control" type="text" name="HeadShape" placeholder="Head Shape">
                 <input class="p-1 m1-2 btn btn-sm btn-info" type="submit" value="Search" />
             </span>
@@ -36,30 +36,89 @@
         </form>
 </div>
 
-<table class="table">
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Latin Name</th>
-        <th>Length</th>
-        <th>Height</th>
-        <th>Wingspan</th>
-    </tr>
+<div class="container d-flex flex-wrap">
+    @*<table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Latin Name</th>
+            <th>Length</th>
+            <th>Height</th>
+            <th>Wingspan</th>
+        </tr>
+    </table>*@
 
     @foreach (var bird in @Model)
     {
-        <tr>
-            <td>@bird.ID</td>
-            <td><a href=/Traits/ViewBird/@bird.ID>@bird.Name</a></td>
-            <td>@bird.LatinName</td>
-            <td>@bird.Length</td>
-            <td>@bird.Height</td>
-            <td>@bird.Wingspan</td>
-        </tr>
+        @*<tr>
+                <td>@bird.ID</td>
+                <td><a href=/Traits/ViewBird/@bird.ID>@bird.Name</a></td>
+                <td>@bird.LatinName</td>
+                <td>@bird.Length</td>
+                <td>@bird.Height</td>
+                <td>@bird.Wingspan</td>
+            </tr>*@
+        <div class="card" style="width: 18rem;">
+            <img src="@bird.Picture" class="card-img-top" alt="@bird.Name">
+            <div class="card-body">
+                <h5 class="card-title">@bird.Name</h5>
+                <p class="card-text">@bird.LatinName</p>
+                <p class="card-text">Length: @bird.Length</p>
+                <p class="card-text">Height: @bird.Height</p>
+                <p class="card-text">Wingspan: @bird.Wingspan</p>
+                <a href="/Traits/ViewBird/@bird.ID" class="btn btn-primary">View</a>
+            </div>
+        </div>
     }
-
-</table>
-
-<div style="display: block">
-    <a href="/Traits/InsertBird/">Add a New Bird</a>
 </div>
+    
+
+    <div style="display: block">
+        <a class="addbird" href="/Traits/InsertBird/">Add a New Bird</a>
+    </div>
+<style>
+    body {
+        background-image: url("Images/traitsbackground.jpeg");
+        min-height: 500px;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .card {
+        background-color: lightyellow;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    }
+    input {
+        border-radius: 18px;
+        border-color: forestgreen;
+        color:grey;
+        background-color: lightyellow;
+        padding: 20px;
+        width: 200px;
+        height: 35px;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    .traitsearch{
+        margin-top:15px;
+        margin-bottom: 15px;
+    }
+    .addbird{
+        color: lightyellow;
+    }
+    h2{
+        color: lightyellow;
+        font-family: cursive;
+        font-size: 50px;
+    }
+    href{
+        color: lightyellow;
+        background-color:lightgreen;
+    }
+    .p-1 m1-2 btn btn-sm btn-info {
+        border-radius: 18px;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+        background-color: lightgreen;
+    }
+</style>
