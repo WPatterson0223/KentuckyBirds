@@ -3,7 +3,9 @@
 <h2>Birds</h2>
 
 <div style="display: block">
-    <a class="addbird" href="/Traits/InsertBird/">Add a New Bird</a>
+    <button onclick="window.location.href='/Traits/InsertBird/';">
+        Add a New Bird
+    </button>
 </div>
 
 <div class="col-1 p-0 justify-content-end">
@@ -37,27 +39,9 @@
 </div>
 
 <div class="container d-flex flex-wrap">
-    @*<table class="table">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Latin Name</th>
-            <th>Length</th>
-            <th>Height</th>
-            <th>Wingspan</th>
-        </tr>
-    </table>*@
 
     @foreach (var bird in @Model)
     {
-        @*<tr>
-                <td>@bird.ID</td>
-                <td><a href=/Traits/ViewBird/@bird.ID>@bird.Name</a></td>
-                <td>@bird.LatinName</td>
-                <td>@bird.Length</td>
-                <td>@bird.Height</td>
-                <td>@bird.Wingspan</td>
-            </tr>*@
         <div class="card" style="width: 18rem;">
             <img src="@bird.Picture" class="card-img-top" alt="@bird.Name">
             <div class="card-body">
@@ -74,7 +58,9 @@
     
 
     <div style="display: block">
-        <a class="addbird" href="/Traits/InsertBird/">Add a New Bird</a>
+        <button onclick="window.location.href='/Traits/InsertBird/';">
+            Add a New Bird
+        </button>
     </div>
 <style>
     body {
@@ -107,10 +93,11 @@
     .addbird{
         color: lightyellow;
     }
-    h2{
+    h2 {
         color: lightyellow;
         font-family: cursive;
         font-size: 50px;
+        margin-top: 80px;
     }
     href{
         color: lightyellow;
@@ -120,5 +107,13 @@
         border-radius: 18px;
         box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
         background-color: lightgreen;
+    }
+    button {
+        background-color: darkgreen;
+        color: lightyellow;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 18px;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 </style>

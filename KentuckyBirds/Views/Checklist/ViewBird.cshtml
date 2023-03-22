@@ -2,27 +2,6 @@
 
 <h3>@Model.Name Information</h3>
 
-@*<table class="table">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Latin Name</th>
-            <th>Length</th>
-            <th>Height</th>
-            <th>Wingspan</th>
-            <th>Comment</th>
-        </tr>
-        <tr>
-            <td>@Model.ID</td>
-            <td>@Model.Name</td>
-            <td>@Model.LatinName</td>
-            <td>@Model.Length</td>
-            <td>@Model.Height</td>
-            <td>@Model.Wingspan</td>
-            <td>@Model.Comment</td>
-        </tr>
-    </table>*@
-
 <img id="pic" alt="@Model.Name" src="@Url.Content("~/"+ Model.Picture + "")" />
 <ul>
 
@@ -34,7 +13,9 @@
 </ul>
 
 <div style="display: block">
-    <a href="/Checklist/UpdateBird/@Model.ID">Update this Bird</a>
+    <button onclick="window.location.href='/Checklist/UpdateBird/@Model.ID';">
+        Update This Bird
+    </button>
 </div>
 
 <div style="display: block">
@@ -42,7 +23,7 @@
     @using (Html.BeginForm("DeleteBird", "Checklist", "Post"))
     {
         <input type="hidden" asp-for="ID" value="@Model.ID" />
-        <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this bird" />
+        <input class="button" type="submit" onclick="return confirm('Are you sure?')" value="Delete This Bird" />
     }
 </div>
 
@@ -55,28 +36,24 @@
         background-repeat: no-repeat;
         background-size: cover;
     }
-
     #pic {
         margin-bottom: 20px;
         width: 500px;
         box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
     }
-
     .birdlist {
         color: lightyellow;
         font-size: 30px;
     }
-
     h3 {
         color: lightyellow;
         font-family: cursive;
         font-size: 50px;
+        margin-top: 80px;
     }
-
     .update {
         color: lightyellow;
     }
-
     .button {
         color: lightyellow;
         background-color: darkgreen;
@@ -84,5 +61,13 @@
         margin-bottom: 10px;
         border-radius: 18px;
         box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    }
+    button {
+        background-color: darkgreen;
+        color: lightyellow;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 18px;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 </style>

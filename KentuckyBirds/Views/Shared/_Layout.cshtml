@@ -10,7 +10,8 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav id="nav" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">KentuckyBirds</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -20,16 +21,16 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a id="nav1" class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Stats" asp-action="Index">Birds</a>
+                            <a id="nav1" class="nav-link text-dark" asp-area="" asp-controller="Stats" asp-action="Index">Birds</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Checklist" asp-action="Index">Checklist</a>
+                            <a id="nav1" class="nav-link text-dark" asp-area="" asp-controller="Checklist" asp-action="Index">Checklist</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Traits" asp-action="Index">Search by Traits</a>
+                            <a id="nav1" class="nav-link text-dark" asp-area="" asp-controller="Traits" asp-action="Index">Search by Traits</a>
                         </li>
                     </ul>
                 </div>
@@ -55,11 +56,23 @@
 </html>
 
 <style>
-    .title{
-        color: lightyellow;
-        font-family: cursive;
-    }
     .navbar-brand {
         font-family: cursive;
+        color: lightyellow !important;
+    }
+    #nav {
+        background-color: darkgreen !important;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5) !important;
+        border-bottom-color: forestgreen !important;
+    }
+    #nav1 {
+        color: lightyellow !important;
+
+    }
+    header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 500;
     }
 </style>
