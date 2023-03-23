@@ -21,8 +21,13 @@
     <label asp-for="Wingspan" class="control-label">Wingspan</label>
     <input type="number" step="0.10" name="Wingspan" class="form-control" value="@Model.Wingspan" />
 
-    <input type="submit" value="Update Bird" class="btn btn-primary" />
+    <input id="viewbutton" type="submit" value="Update Bird" class="btn btn-primary" />
 }
+
+
+
+
+
 <style>
     body {
         background-image: url("/Images/updatebirdbackground.jpeg");
@@ -37,7 +42,9 @@
     }
 
     .btn btn-primary {
-        color: lightyellow;
+        background-color: lightgreen !important;
+        border-color: lightyellow !important;
+        color: darkgreen !important;
     }
 
     h2 {
@@ -50,5 +57,10 @@
     input {
         background-color: lightyellow;
         box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    }
+    #viewbutton {
+        background-color: lightgreen !important;
+        border-color: darkgreen !important;
+        color: darkgreen !important;
     }
 </style>

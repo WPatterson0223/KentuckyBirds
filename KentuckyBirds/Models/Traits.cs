@@ -23,7 +23,7 @@ namespace KentuckyBirds.Models
         public string SpottedStriped { get; set; }
         public string BeakSize { get; set; }
         public string HeadShape { get; set; }
-        public string Picture { get; set; }
+        public string Picture { get; set; } = "Images/default.jpeg";
     }
 }
 

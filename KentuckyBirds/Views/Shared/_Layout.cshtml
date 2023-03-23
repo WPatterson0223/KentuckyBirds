@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/KentuckyBirds.styles.css" asp-append-version="true" />
 </head>
+
 <body>
     <header>
         <nav id="nav" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -23,14 +24,15 @@
                         <li class="nav-item">
                             <a id="nav1" class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
+                        @*<li class="nav-item">
                             <a id="nav1" class="nav-link text-dark" asp-area="" asp-controller="Stats" asp-action="Index">Birds</a>
+                         </li>*@
+                        
+                        <li class="nav-item">
+                            <a id="nav1" class="nav-link text-dark" asp-area="" asp-controller="Traits" asp-action="Index">Birds</a>
                         </li>
                         <li class="nav-item">
-                            <a id="nav1" class="nav-link text-dark" asp-area="" asp-controller="Checklist" asp-action="Index">Checklist</a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="nav1" class="nav-link text-dark" asp-area="" asp-controller="Traits" asp-action="Index">Search by Traits</a>
+                            <a id="nav1" class="nav-link text-dark" asp-area="" asp-controller="Checklist" asp-action="Index">My List</a>
                         </li>
                     </ul>
                 </div>

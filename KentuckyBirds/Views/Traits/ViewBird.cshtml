@@ -1,63 +1,52 @@
 ﻿@model Traits
-    
-        <h3>@Model.Name Information</h3>
 
-        @*<table class="table">
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Latin Name</th>
-                    <th>Length</th>
-                    <th>Height</th>
-                    <th>Wingspan</th>
-                </tr>
-                <tr>
-                    <td>@Model.ID</td>
-                    <td>@Model.Name</td>
-                    <td>@Model.LatinName</td>
-                    <td>@Model.Length</td>
-                    <td>@Model.Height</td>
-                    <td>@Model.Wingspan</td>
-                </tr>
-            </table>*@
+<h3>@Model.Name Information</h3>
+
 <img id="pic" alt="@Model.Name" src="@Url.Content("~/"+ Model.Picture + "")" />
-        <ul>
-            
-            <li class="birdlist">@Model.LatinName</li>
-            <li class="birdlist">Length: @Model.Length</li>
-            <li class="birdlist">Height: @Model.Height</li>
-            <li class="birdlist">Wingspan: @Model.Wingspan</li>
-        </ul>
+<ul>
+    <li class="birdlist">@Model.LatinName</li>
+    <li class="birdlist">Length: @Model.Length</li>
+    <li class="birdlist">Height: @Model.Height</li>
+    <li class="birdlist">Wingspan: @Model.Wingspan</li>
+</ul>
 
-        <div style="display: block">
+<div style="display: block">
+    @using (Html.BeginForm("InsertChecklistFromTraits", "Traits", "Post"))
+    {
+        <input type="hidden" asp-for="Name" value="@Model.Name" />
+        <input type="hidden" asp-for="LatinName" value="@Model.LatinName" />
+        <input type="hidden" asp-for="Length" value="@Model.Length" />
+        <input type="hidden" asp-for="Height" value="@Model.Height" />
+        <input type="hidden" asp-for="Wingspan" value="@Model.Wingspan" />
+        <input type="hidden" asp-for="Picture" value="@Model.Picture" />
+        <input class="button" type="submit" onclick="return confirm('Are you sure?')" value="Add to My List" />
+    }
+</div>
 
-            @using (Html.BeginForm("InsertChecklistFromTraits", "Traits", "Post"))
-            {
-                <input type="hidden" asp-for="Name" value="@Model.Name" />
-                <input type="hidden" asp-for="LatinName" value="@Model.LatinName" />
-                <input type="hidden" asp-for="Length" value="@Model.Length" />
-                <input type="hidden" asp-for="Height" value="@Model.Height" />
-                <input type="hidden" asp-for="Wingspan" value="@Model.Wingspan" />
-                <input type="hidden" asp-for="Picture" value="@Model.Picture" />
-                <input class="button" type="submit" onclick="return confirm('Are you sure?')" value="Add to Checklist" />
-            }
-        </div>
-
+    @if (Model.ID > 37)
+    {
         <div style="display: block">
             <button onclick="window.location.href='/Traits/UpdateBird/@Model.ID';">
                 Update This Bird
             </button>
         </div>
+    }
 
+    @if (Model.ID > 37)
+    {
         <div style="display: block">
-
             @using (Html.BeginForm("DeleteBird", "Traits", "Post"))
             {
                 <input type="hidden" asp-for="ID" value="@Model.ID" />
                 <input class="button" type="submit" onclick="return confirm('Are you sure?')" value="Delete this bird" />
             }
         </div>
-    
+    }
+
+
+
+
+
     <style>
         body {
             background-image: url("/Images/traitsviewbirdbackground.webp");
@@ -78,26 +67,32 @@
             color: lightyellow;
             font-size: 30px;
         }
+
         h3 {
             color: lightyellow;
             font-family: cursive;
             font-size: 50px;
             margin-top: 80px;
         }
-        .update{
-            color:lightyellow;
-        }
-        .button {
+
+        .update {
             color: lightyellow;
-            background-color: darkgreen;
+        }
+
+        .button {
+            background-color: lightgreen;
+            border-color: lightyellow;
+            color: darkgreen;
             margin-top: 10px;
             margin-bottom: 10px;
             border-radius: 18px;
             box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
         }
+
         button {
-            color: lightyellow;
-            background-color: darkgreen;
+            background-color: lightgreen;
+            border-color: lightyellow;
+            color: darkgreen;
             margin-top: 10px;
             margin-bottom: 10px;
             border-radius: 18px;

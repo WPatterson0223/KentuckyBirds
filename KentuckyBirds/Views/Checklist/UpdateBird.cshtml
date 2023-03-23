@@ -24,8 +24,12 @@
     <label asp-for="Comment" class="control-label">Comment</label>
     <input type="text" name="Comment" class="form-control" value="@Model.Comment" />
 
-    <input type="submit" value="Update Bird" class="btn btn-primary" />
+    <input id="viewbutton" type="submit" value="Update Bird" class="btn btn-primary" />
     }
+
+
+
+
 
 <style>
     body {
@@ -42,7 +46,9 @@
     }
 
     .btn btn-primary {
-        color: lightyellow;
+        background-color: lightgreen !important;
+        border-color: lightyellow !important;
+        color: darkgreen !important;
     }
 
     h2 {
@@ -55,5 +61,10 @@
     input {
         background-color: lightyellow;
         box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    }
+    #viewbutton {
+        background-color: lightgreen !important;
+        border-color: darkgreen !important;
+        color: darkgreen !important;
     }
 </style>

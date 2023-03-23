@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<Traits>
 
-<h2>Birds</h2>
+<h2>Common Backyard Birds</h2>
 
 <div style="display: block">
     <button onclick="window.location.href='/Traits/InsertBird/';">
@@ -12,9 +12,8 @@
     <form asp.controller="Bird" asp.action="Index">
         <span class="btn.group">
             <input class="form control" type="text" name="userSearch" placeholder="Name">
-            <input class="p-1 m1-2 btn btn-sm btn-info" type="submit" value="Search" />
+            <input id="searchbutton" class="p-1 m1-2 btn btn-sm btn-info" type="submit" value="Search" />
         </span>
-
     </form>
 </div>
 
@@ -32,9 +31,8 @@
                 <input class="form control" type="text" name="SpottedStriped" placeholder="Spotted or Striped">
                 @*<input class="form control" type="text" name="BeakSize" placeholder="Beak Size">*@
                 <input class="form control" type="text" name="HeadShape" placeholder="Head Shape">
-                <input class="p-1 m1-2 btn btn-sm btn-info" type="submit" value="Search" />
+                <input id="searchbutton" class="p-1 m1-2 btn btn-sm btn-info" type="submit" value="Search" />
             </span>
-
         </form>
 </div>
 
@@ -43,25 +41,29 @@
     @foreach (var bird in @Model)
     {
         <div class="card" style="width: 18rem;">
-            <img src="@bird.Picture" class="card-img-top" alt="@bird.Name">
+            <a href="/Traits/ViewBird/@bird.ID"><img src="@bird.Picture" class="card-img-top" alt="@bird.Name" /></a>
             <div class="card-body">
                 <h5 class="card-title">@bird.Name</h5>
                 <p class="card-text">@bird.LatinName</p>
                 <p class="card-text">Length: @bird.Length</p>
                 <p class="card-text">Height: @bird.Height</p>
                 <p class="card-text">Wingspan: @bird.Wingspan</p>
-                <a href="/Traits/ViewBird/@bird.ID" class="btn btn-primary">View</a>
+                <a id="viewbutton" href="/Traits/ViewBird/@bird.ID" class="btn btn-primary">View</a>
             </div>
         </div>
     }
 </div>
-    
 
     <div style="display: block">
         <button onclick="window.location.href='/Traits/InsertBird/';">
             Add a New Bird
         </button>
     </div>
+
+
+
+
+
 <style>
     body {
         background-image: url("Images/traitsbackground.jpeg");
@@ -109,11 +111,23 @@
         background-color: lightgreen;
     }
     button {
-        background-color: darkgreen;
-        color: lightyellow;
+        background-color: lightgreen;
+        border-color:lightyellow;
+        color: darkgreen;
         box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
         border-radius: 18px;
         margin-top: 10px;
         margin-bottom: 10px;
+    }
+    #viewbutton{
+        background-color: lightgreen !important;
+        border-color: darkgreen !important;
+        color: darkgreen !important;
+    }
+    #searchbutton{
+        width:100px;
+        color: lightyellow;
+        background-color:darkgreen;
+        border-color:forestgreen;
     }
 </style>

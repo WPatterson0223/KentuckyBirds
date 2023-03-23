@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<Checklist>
 
-<h2>Birds</h2>
+<h2>My List</h2>
 
 <div style="display: block">
     <button onclick="window.location.href='/Checklist/InsertBird/';">
@@ -12,31 +12,28 @@
     <form asp.controller="Bird" asp.action="Index">
         <span class="btn.group">
             <input class="form control" type="text" name="userSearch" placeholder="Name">
-            <input class="p-1 m1-2 btn btn-sm btn-info" type="submit" value="Search" />
+            <input id="searchbutton" class="p-1 m1-2 btn btn-sm btn-info" type="submit" value="Search" />
         </span>
     </form>
 </div>
 
-
 <div class="container d-flex flex-wrap">
     @foreach (var bird in @Model)
     {
-        
         <div class="card" style="width: 18rem;">
-            <img src="@bird.Picture" class="card-img-top" alt="@bird.Name">
+            <a href="/Checklist/ViewBird/@bird.ID"><img src="@bird.Picture" class="card-img-top" alt="@bird.Name" /></a>
             <div class="card-body">
                 <h5 class="card-title">@bird.Name</h5>
                 <p class="card-text">@bird.LatinName</p>
                 <p class="card-text">Length: @bird.Length</p>
                 <p class="card-text">Height: @bird.Height</p>
                 <p class="card-text">Wingspan: @bird.Wingspan</p>
-                <a href="/Checklist/ViewBird/@bird.ID" class="btn btn-primary">View</a>
+                <p class="card-text">Comment: @bird.Comment</p>
+                <a id="viewbutton" href="/Checklist/ViewBird/@bird.ID" class="btn btn-primary">View</a>
             </div>
         </div>
-
     }
 </div>
-
 
 <div style="display: block">
     <button onclick="window.location.href='/Checklist/InsertBird/';">
@@ -57,12 +54,10 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
-
         .card {
             background-color: lightyellow;
             box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
         }
-
         input {
             border-radius: 18px;
             border-color: forestgreen;
@@ -73,29 +68,39 @@
             height: 35px;
             box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
         }
-
         .addbird {
             color: lightyellow;
         }
-
         h2 {
             color: lightyellow;
             font-family: cursive;
             font-size: 50px;
             margin-top: 80px;
         }
-
         href {
             color: lightyellow;
             background-color: lightgreen;
         }
         button {
-            background-color: darkgreen;
-            color: lightyellow;
+            background-color: lightgreen;
+            border-color: lightyellow;
+            color: darkgreen;
             box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
             border-radius: 18px;
             margin-top: 10px;
             margin-bottom: 10px;
+        }
+        #viewbutton {
+            background-color: lightgreen !important;
+            border-color: darkgreen !important;
+            color: darkgreen !important;
+        }
+        #searchbutton {
+            width: 100px;
+            color: lightyellow;
+            background-color: darkgreen;
+            border-color: forestgreen;
+            margin-bottom: 20px;
         }
     </style>
 

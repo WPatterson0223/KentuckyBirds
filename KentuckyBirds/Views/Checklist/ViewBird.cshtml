@@ -4,7 +4,6 @@
 
 <img id="pic" alt="@Model.Name" src="@Url.Content("~/"+ Model.Picture + "")" />
 <ul>
-
     <li class="birdlist">@Model.LatinName</li>
     <li class="birdlist">Length: @Model.Length</li>
     <li class="birdlist">Height: @Model.Height</li>
@@ -19,13 +18,16 @@
 </div>
 
 <div style="display: block">
-
     @using (Html.BeginForm("DeleteBird", "Checklist", "Post"))
     {
         <input type="hidden" asp-for="ID" value="@Model.ID" />
         <input class="button" type="submit" onclick="return confirm('Are you sure?')" value="Delete This Bird" />
     }
 </div>
+
+
+
+
 
 <style>
     body {
@@ -55,16 +57,18 @@
         color: lightyellow;
     }
     .button {
-        color: lightyellow;
-        background-color: darkgreen;
+        background-color: lightgreen;
+        border-color: lightyellow;
+        color: darkgreen;
         margin-top: 10px;
         margin-bottom: 10px;
         border-radius: 18px;
         box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
     }
     button {
-        background-color: darkgreen;
-        color: lightyellow;
+        background-color: lightgreen;
+        border-color: lightyellow;
+        color: darkgreen;
         box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
         border-radius: 18px;
         margin-top: 10px;
