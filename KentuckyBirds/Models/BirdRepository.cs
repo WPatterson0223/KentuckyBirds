@@ -34,8 +34,11 @@ namespace KentuckyBirds.Models
         public void DeleteBird(Stats bird)
         {
             _connection.Execute("DELETE FROM Stats WHERE ID = @ID;", new { ID = bird.ID });
-            
-            
+        }
+        public void InsertChecklistFromStats(Stats birdToInsert)
+        {
+            _connection.Execute("INSERT INTO Checklist ( Name, LatinName, Length, Height, Wingspan) VALUES (@Name, @LatinName, @Length, @Height, @Wingspan);",
+                new { name = birdToInsert.Name, LatinName = birdToInsert.LatinName, Length = birdToInsert.Length, Height = birdToInsert.Height, Wingspan = birdToInsert.Wingspan });
         }
 
 
@@ -62,11 +65,6 @@ namespace KentuckyBirds.Models
         public void DeleteBird(Checklist bird)
         {
             _connection.Execute("DELETE FROM Checklist WHERE ID = @ID;", new { ID = bird.ID });
-        }
-        public void InsertChecklistFromStats(Stats birdToInsert)
-        {
-            _connection.Execute("INSERT INTO Checklist ( Name, LatinName, Length, Height, Wingspan) VALUES (@Name, @LatinName, @Length, @Height, @Wingspan);",
-                new {name = birdToInsert.Name, LatinName = birdToInsert.LatinName, Length = birdToInsert.Length, Height = birdToInsert.Height, Wingspan = birdToInsert.Wingspan});
         }
 
 
